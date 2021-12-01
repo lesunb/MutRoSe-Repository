@@ -108,6 +108,19 @@ public class ManageWriter {
 		}
 	} 
 
+
+	public static String readFileAsString(String filePath)  {
+		String res = null;
+		try {
+			res = FileUtility.readFileAsString(filePath);
+		} catch (IOException e) {
+			String msg = "Error: file " + filePath + " not found.";
+			System.out.println(msg);
+			throw new RuntimeException(msg);
+		}
+		return res;
+	}
+	
 	public static String readFile(File arq) {
 		try {
 			StringBuilder text = new StringBuilder();
