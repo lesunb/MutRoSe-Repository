@@ -53,7 +53,7 @@ public class MutRoSeProducer {
 					.append(" ").append("");
 
 			Runtime.getRuntime().exec(command.toString());
-			String result = ManageWriter.readFile(new File(output));
+			String result = ManageWriter.readFileAsString(output);
 			if (result == null) {
 				LOGGER.warning("Fail to execute Mutrose");
 				throw new ResponseException("Fail to execute MutRoSe.");
