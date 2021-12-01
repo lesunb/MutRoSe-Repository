@@ -18,6 +18,7 @@ import java.util.Scanner;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+
 public class ManageWriter {
 	// Constantes
 	static final int TAMANHO_BUFFER = 4096; // 4kb
@@ -89,6 +90,34 @@ public class ManageWriter {
 		}
 	}
 
+
+	public static String readFileAsString(File file)  {
+		String res = null;
+		String filePath = file.getAbsolutePath();
+		try {
+			res = br.unb.cic.modelling.utils.FileUtility.readFileAsString(filePath);
+		} catch (IOException e) {
+			String msg = "Error: file " + filePath + " not found.";
+			System.out.println(msg);
+			throw new RuntimeException(msg);
+		}
+		return res;
+	}
+
+	
+
+	public static String readFileAsString(String filePath) {
+		String res = null;
+		try {
+			res = br.unb.cic.modelling.utils.FileUtility.readFileAsString(filePath);
+		} catch (IOException e) {
+			String msg = "Error: file " + filePath + " not found.";
+			System.out.println(msg);
+			throw new RuntimeException(msg);
+		}
+		return res;
+	}
+	
 	public static String readFile(String path) {
 		try {
 			File arq = new File(path);
@@ -108,18 +137,6 @@ public class ManageWriter {
 		}
 	} 
 
-
-	public static String readFileAsString(String filePath)  {
-		String res = null;
-		try {
-			res = FileUtility.readFileAsString(filePath);
-		} catch (IOException e) {
-			String msg = "Error: file " + filePath + " not found.";
-			System.out.println(msg);
-			throw new RuntimeException(msg);
-		}
-		return res;
-	}
 	
 	public static String readFile(File arq) {
 		try {

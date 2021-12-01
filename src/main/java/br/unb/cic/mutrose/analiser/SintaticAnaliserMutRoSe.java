@@ -33,7 +33,7 @@ public class SintaticAnaliserMutRoSe implements SintaticAnaliserInterface {
 			LOGGER.info(proc.getInputStream().toString());
 			LOGGER.info(proc.getOutputStream().toString());
 
-			return ManageWriter.readFile(dir + "goal-model-list-error.json");
+			return ManageWriter.readFileAsString(dir + "goal-model-list-error.json");
 
 		} catch (Exception error) {
 			LOGGER.log(Level.SEVERE, error.getMessage());
