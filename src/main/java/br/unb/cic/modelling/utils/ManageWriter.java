@@ -2,10 +2,12 @@ package br.unb.cic.modelling.utils;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,7 +19,6 @@ import java.util.Comparator;
 import java.util.Scanner;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-
 
 public class ManageWriter {
 	// Constantes
@@ -90,12 +91,25 @@ public class ManageWriter {
 		}
 	}
 
-
-	public static String readFileAsString(File file)  {
+	public static String readFileAsString(File file) {
 		String res = null;
 		String filePath = file.getAbsolutePath();
 		try {
-			res = br.unb.cic.modelling.utils.FileUtility.readFileAsString(filePath);
+			StringBuffer fileData = new StringBuffer(1000);
+			BufferedReader reader = null;
+
+			reader = new BufferedReader(new FileReader(filePath));
+
+			char[] buf = new char[1024];
+			int numRead = 0;
+
+			while ((numRead = reader.read(buf)) != -1) {
+				String readData = String.valueOf(buf, 0, numRead);
+				fileData.append(readData);
+				buf = new char[1024];
+			}
+			reader.close();
+			res = fileData.toString();
 		} catch (IOException e) {
 			String msg = "Error: file " + filePath + " not found.";
 			System.out.println(msg);
@@ -103,13 +117,25 @@ public class ManageWriter {
 		}
 		return res;
 	}
-
-	
 
 	public static String readFileAsString(String filePath) {
 		String res = null;
 		try {
-			res = br.unb.cic.modelling.utils.FileUtility.readFileAsString(filePath);
+			StringBuffer fileData = new StringBuffer(1000);
+			BufferedReader reader = null;
+
+			reader = new BufferedReader(new FileReader(filePath));
+
+			char[] buf = new char[1024];
+			int numRead = 0;
+
+			while ((numRead = reader.read(buf)) != -1) {
+				String readData = String.valueOf(buf, 0, numRead);
+				fileData.append(readData);
+				buf = new char[1024];
+			}
+			reader.close();
+			res = fileData.toString();
 		} catch (IOException e) {
 			String msg = "Error: file " + filePath + " not found.";
 			System.out.println(msg);
@@ -117,7 +143,7 @@ public class ManageWriter {
 		}
 		return res;
 	}
-	
+
 	public static String readFile(String path) {
 		try {
 			File arq = new File(path);
@@ -135,9 +161,8 @@ public class ManageWriter {
 		} catch (IOException e) {
 			throw new RuntimeException("Falha ao ler arquivo.");
 		}
-	} 
+	}
 
-	
 	public static String readFile(File arq) {
 		try {
 			StringBuilder text = new StringBuilder();
