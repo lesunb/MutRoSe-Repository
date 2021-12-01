@@ -1,0 +1,11 @@
+((-CTX_G1_T1_1*F_G1_T1_1*R_G1_T1_1*CTX_G1_T1_2*F_G1_T1_2*R_G1_T1_2+CTX_G1_T1_1*F_G1_T1_1*R_G1_T1_1+CTX_G1_T1_2*F_G1_T1_2*R_G1_T1_2)*(CTX_G1_T1_1*W_G1_T1_1+CTX_G1_T1_2*W_G1_T1_2)-CTX_G1_T1_1*F_G1_T1_1*R_G1_T1_1*CTX_G1_T1_2*W_G1_T1_2)
+
+//CTX_G1_T1_2 = (ctx=2)
+//CTX_G1_T1_1 = (ctx=1)
+//R_G1_T1_1 = reliability of node G1_T1_1
+//F_G1_T1_1 = frequency of node G1_T1_1
+//R_G1_T1_2 = reliability of node G1_T1_2
+//F_G1_T1_2 = frequency of node G1_T1_2
+//W_G1_T1_1 = cost of node G1_T1_1
+//W_G1_T1_2 = cost of node G1_T1_2
+

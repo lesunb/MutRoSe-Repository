@@ -1,0 +1,316 @@
+mdp
+
+const int CTX_1; // vitalParamMsg = true 
+const int CTX_2; // pButtonMsg = true 
+const int CTX_3; // vitalParamMsg = true & pButtonMsg = true 
+
+global CTX_G1: [0..1] init 0;
+global CTX_G2: [0..1] init 0;
+
+
+module NonDeterminism_G0
+	sG0 :[0..2] init 0;
+	
+	[next_0] sG0 = 0 -> (sG0'= 1);
+
+	[] sG0 = 1 -> CTX_1 : (sG0'= 2) & (CTX_G1'=1) + (1 - CTX_1) : (sG0'=1);
+	[] sG0 = 1 -> CTX_2 : (sG0'= 2) & (CTX_G2'=1) + (1 - CTX_2) : (sG0'=1);
+	[] sG0 = 1 -> CTX_3 : (sG0'= 2) & (CTX_G1'=1) & (CTX_G2'=1) + (1 - CTX_3) : (sG0'=1);
+
+	[] sG0 = 1 -> (sG0'=2); //no uncertainty holding
+	 
+	[next_1] sG0 = 2 -> (sG0'=2);
+endmodule
+
+const double R_G3_T1;
+module G3_T1_GetVitalPaRams
+	sG3_T1 :[0..4] init 0;
+	
+	[next_1] sG3_T1 = 0 -> (sG3_T1'=1);//init to running
+	
+
+	[] sG3_T1 =  1 -> R_G3_T1 : (sG3_T1'=2) + (1 - R_G3_T1) : (sG3_T1'=4);//running to final state
+	[next_2] sG3_T1 = 2 -> (sG3_T1'=2);//final state success
+	[next_2] sG3_T1 = 3 -> (sG3_T1'=3);//final state skipped
+	[next_2] sG3_T1 = 4 -> (sG3_T1'=4);//final state failure
+endmodule
+
+formula G3 = (sG3_T1=2);
+
+const int CTX_4; // ms = 1 
+const int CTX_5; // ms = 2 
+const int CTX_6; // ms = 1 & ms = 2 
+const int CTX_7; // ms = 3 
+const int CTX_8; // ms = 1 & ms = 3 
+const int CTX_9; // ms = 2 & ms = 3 
+const int CTX_10; // ms = 1 & ms = 2 & ms = 3 
+
+global CTX_G4_T2_1: [0..1] init 0;
+global CTX_G4_T2_2: [0..1] init 0;
+global CTX_G4_T2_3: [0..1] init 0;
+
+
+module NonDeterminism_G4_T2
+	sG4_T2 :[0..2] init 0;
+	
+	[next_2] sG4_T2 = 0 -> (sG4_T2'= 1);
+
+	[] sG4_T2 = 1 -> CTX_4 : (sG4_T2'= 2) & (CTX_G4_T2_1'=1) + (1 - CTX_4) : (sG4_T2'=1);
+	[] sG4_T2 = 1 -> CTX_5 : (sG4_T2'= 2) & (CTX_G4_T2_2'=1) + (1 - CTX_5) : (sG4_T2'=1);
+	[] sG4_T2 = 1 -> CTX_6 : (sG4_T2'= 2) & (CTX_G4_T2_1'=1) & (CTX_G4_T2_2'=1) + (1 - CTX_6) : (sG4_T2'=1);
+	[] sG4_T2 = 1 -> CTX_7 : (sG4_T2'= 2) & (CTX_G4_T2_3'=1) + (1 - CTX_7) : (sG4_T2'=1);
+	[] sG4_T2 = 1 -> CTX_8 : (sG4_T2'= 2) & (CTX_G4_T2_1'=1) & (CTX_G4_T2_3'=1) + (1 - CTX_8) : (sG4_T2'=1);
+	[] sG4_T2 = 1 -> CTX_9 : (sG4_T2'= 2) & (CTX_G4_T2_2'=1) & (CTX_G4_T2_3'=1) + (1 - CTX_9) : (sG4_T2'=1);
+	[] sG4_T2 = 1 -> CTX_10 : (sG4_T2'= 2) & (CTX_G4_T2_1'=1) & (CTX_G4_T2_2'=1) & (CTX_G4_T2_3'=1) + (1 - CTX_10) : (sG4_T2'=1);
+
+	[] sG4_T2 = 1 -> (sG4_T2'=2); //no uncertainty holding
+	 
+	[next_3] sG4_T2 = 2 -> (sG4_T2'=2);
+endmodule
+
+const double R_G4_T2_1;
+module G4_T2_1_MedicalService1
+	sG4_T2_1 :[0..4] init 0;
+	
+	[next_3] (G3) & sG4_T2_1 = 0 -> CTX_G1 : (sG4_T2_1'=1) + (1 - CTX_G1) : (sG4_T2_1'=3); //init to running or skip
+	[next_3] !(G3) & sG4_T2_1 = 0 -> (sG4_T2_1'=3);//init to skip
+
+	[] sG4_T2_1 =  1 -> R_G4_T2_1 : (sG4_T2_1'=2) + (1 - R_G4_T2_1) : (sG4_T2_1'=4);//running to final state
+	[next_4] sG4_T2_1 = 2 -> (sG4_T2_1'=2);//final state success
+	[next_4] sG4_T2_1 = 3 -> (sG4_T2_1'=3);//final state skipped
+	[next_4] sG4_T2_1 = 4 -> (sG4_T2_1'=4);//final state failure
+endmodule
+
+const double R_G4_T2_2;
+module G4_T2_2_MedicalService2
+	sG4_T2_2 :[0..4] init 0;
+	
+	[next_3] (G3) & sG4_T2_2 = 0 -> CTX_G1 : (sG4_T2_2'=1) + (1 - CTX_G1) : (sG4_T2_2'=3); //init to running or skip
+	[next_3] !(G3) & sG4_T2_2 = 0 -> (sG4_T2_2'=3);//init to skip
+
+	[] sG4_T2_2 =  1 -> R_G4_T2_2 : (sG4_T2_2'=2) + (1 - R_G4_T2_2) : (sG4_T2_2'=4);//running to final state
+	[next_4] sG4_T2_2 = 2 -> (sG4_T2_2'=2);//final state success
+	[next_4] sG4_T2_2 = 3 -> (sG4_T2_2'=3);//final state skipped
+	[next_4] sG4_T2_2 = 4 -> (sG4_T2_2'=4);//final state failure
+endmodule
+
+const double R_G4_T2_3;
+module G4_T2_3_MedicalService3
+	sG4_T2_3 :[0..4] init 0;
+	
+	[next_3] (G3) & sG4_T2_3 = 0 -> CTX_G1 : (sG4_T2_3'=1) + (1 - CTX_G1) : (sG4_T2_3'=3); //init to running or skip
+	[next_3] !(G3) & sG4_T2_3 = 0 -> (sG4_T2_3'=3);//init to skip
+
+	[] sG4_T2_3 =  1 -> R_G4_T2_3 : (sG4_T2_3'=2) + (1 - R_G4_T2_3) : (sG4_T2_3'=4);//running to final state
+	[next_4] sG4_T2_3 = 2 -> (sG4_T2_3'=2);//final state success
+	[next_4] sG4_T2_3 = 3 -> (sG4_T2_3'=3);//final state skipped
+	[next_4] sG4_T2_3 = 4 -> (sG4_T2_3'=4);//final state failure
+endmodule
+
+formula G4 = ((sG4_T2_1=2) | (sG4_T2_2=2) | (sG4_T2_3=2));
+
+const double R_G6_T3_1;
+module G6_T3_1_ChangeDrug
+	sG6_T3_1 :[0..4] init 0;
+	
+	[next_4] (G4) & sG6_T3_1 = 0 -> (sG6_T3_1'=1);//init to running
+	[next_4] !(G4) & sG6_T3_1 = 0 -> (sG6_T3_1'=3);//init to skip
+
+	[] sG6_T3_1 =  1 -> R_G6_T3_1 : (sG6_T3_1'=2) + (1 - R_G6_T3_1) : (sG6_T3_1'=4);//running to final state
+	[next_5] sG6_T3_1 = 2 -> (sG6_T3_1'=2);//final state success
+	[next_5] sG6_T3_1 = 3 -> (sG6_T3_1'=3);//final state skipped
+	[next_5] sG6_T3_1 = 4 -> (sG6_T3_1'=4);//final state failure
+endmodule
+
+const double R_G6_T3_2;
+module G6_T3_2_ChangeDose
+	sG6_T3_2 :[0..4] init 0;
+	
+	[next_5] (G4) & sG6_T3_2 = 0 -> (sG6_T3_2'=1);//init to running
+	[next_5] !(G4) & sG6_T3_2 = 0 -> (sG6_T3_2'=3);//init to skip
+
+	[] sG6_T3_2 =  1 -> R_G6_T3_2 : (sG6_T3_2'=2) + (1 - R_G6_T3_2) : (sG6_T3_2'=4);//running to final state
+	[next_6] sG6_T3_2 = 2 -> (sG6_T3_2'=2);//final state success
+	[next_6] sG6_T3_2 = 3 -> (sG6_T3_2'=3);//final state skipped
+	[next_6] sG6_T3_2 = 4 -> (sG6_T3_2'=4);//final state failure
+endmodule
+
+formula G6 = ((sG6_T3_1=2) | (sG6_T3_2=2));
+
+const int CTX_11; // as = 1 
+const int CTX_12; // as = 2 
+const int CTX_13; // as = 1 & as = 2 
+const int CTX_14; // as = 3 
+const int CTX_15; // as = 1 & as = 3 
+const int CTX_16; // as = 2 & as = 3 
+const int CTX_17; // as = 1 & as = 2 & as = 3 
+
+global CTX_G8_T5_1: [0..1] init 0;
+global CTX_G8_T5_2: [0..1] init 0;
+global CTX_G8_T5_3: [0..1] init 0;
+
+
+module NonDeterminism_G8_T5
+	sG8_T5 :[0..2] init 0;
+	
+	[next_6] sG8_T5 = 0 -> (sG8_T5'= 1);
+
+	[] sG8_T5 = 1 -> CTX_11 : (sG8_T5'= 2) & (CTX_G8_T5_1'=1) + (1 - CTX_11) : (sG8_T5'=1);
+	[] sG8_T5 = 1 -> CTX_12 : (sG8_T5'= 2) & (CTX_G8_T5_2'=1) + (1 - CTX_12) : (sG8_T5'=1);
+	[] sG8_T5 = 1 -> CTX_13 : (sG8_T5'= 2) & (CTX_G8_T5_1'=1) & (CTX_G8_T5_2'=1) + (1 - CTX_13) : (sG8_T5'=1);
+	[] sG8_T5 = 1 -> CTX_14 : (sG8_T5'= 2) & (CTX_G8_T5_3'=1) + (1 - CTX_14) : (sG8_T5'=1);
+	[] sG8_T5 = 1 -> CTX_15 : (sG8_T5'= 2) & (CTX_G8_T5_1'=1) & (CTX_G8_T5_3'=1) + (1 - CTX_15) : (sG8_T5'=1);
+	[] sG8_T5 = 1 -> CTX_16 : (sG8_T5'= 2) & (CTX_G8_T5_2'=1) & (CTX_G8_T5_3'=1) + (1 - CTX_16) : (sG8_T5'=1);
+	[] sG8_T5 = 1 -> CTX_17 : (sG8_T5'= 2) & (CTX_G8_T5_1'=1) & (CTX_G8_T5_2'=1) & (CTX_G8_T5_3'=1) + (1 - CTX_17) : (sG8_T5'=1);
+
+	[] sG8_T5 = 1 -> (sG8_T5'=2); //no uncertainty holding
+	 
+	[next_7] sG8_T5 = 2 -> (sG8_T5'=2);
+endmodule
+
+const double R_G8_T5_1;
+module G8_T5_1_AlarmService1
+	sG8_T5_1 :[0..4] init 0;
+	
+	[next_7] (G6) & sG8_T5_1 = 0 -> CTX_G1 : (sG8_T5_1'=1) + (1 - CTX_G1) : (sG8_T5_1'=3); //init to running or skip
+	[next_7] !(G6) & sG8_T5_1 = 0 -> (sG8_T5_1'=3);//init to skip
+
+	[] sG8_T5_1 =  1 -> R_G8_T5_1 : (sG8_T5_1'=2) + (1 - R_G8_T5_1) : (sG8_T5_1'=4);//running to final state
+	[next_8] sG8_T5_1 = 2 -> (sG8_T5_1'=2);//final state success
+	[next_8] sG8_T5_1 = 3 -> (sG8_T5_1'=3);//final state skipped
+	[next_8] sG8_T5_1 = 4 -> (sG8_T5_1'=4);//final state failure
+endmodule
+
+const double R_G8_T5_2;
+module G8_T5_2_AlarmService2
+	sG8_T5_2 :[0..4] init 0;
+	
+	[next_7] (G6) & sG8_T5_2 = 0 -> CTX_G1 : (sG8_T5_2'=1) + (1 - CTX_G1) : (sG8_T5_2'=3); //init to running or skip
+	[next_7] !(G6) & sG8_T5_2 = 0 -> (sG8_T5_2'=3);//init to skip
+
+	[] sG8_T5_2 =  1 -> R_G8_T5_2 : (sG8_T5_2'=2) + (1 - R_G8_T5_2) : (sG8_T5_2'=4);//running to final state
+	[next_8] sG8_T5_2 = 2 -> (sG8_T5_2'=2);//final state success
+	[next_8] sG8_T5_2 = 3 -> (sG8_T5_2'=3);//final state skipped
+	[next_8] sG8_T5_2 = 4 -> (sG8_T5_2'=4);//final state failure
+endmodule
+
+const double R_G8_T5_3;
+module G8_T5_3_AlarmService3
+	sG8_T5_3 :[0..4] init 0;
+	
+	[next_7] (G6) & sG8_T5_3 = 0 -> CTX_G1 : (sG8_T5_3'=1) + (1 - CTX_G1) : (sG8_T5_3'=3); //init to running or skip
+	[next_7] !(G6) & sG8_T5_3 = 0 -> (sG8_T5_3'=3);//init to skip
+
+	[] sG8_T5_3 =  1 -> R_G8_T5_3 : (sG8_T5_3'=2) + (1 - R_G8_T5_3) : (sG8_T5_3'=4);//running to final state
+	[next_8] sG8_T5_3 = 2 -> (sG8_T5_3'=2);//final state success
+	[next_8] sG8_T5_3 = 3 -> (sG8_T5_3'=3);//final state skipped
+	[next_8] sG8_T5_3 = 4 -> (sG8_T5_3'=4);//final state failure
+endmodule
+
+formula G8 = ((sG8_T5_1=2) | (sG8_T5_2=2) | (sG8_T5_3=2));
+
+formula G5 = G6 & G8;
+formula G1 = G3 & G4 & G5;
+const int CTX_18; // as = 1 
+const int CTX_19; // as = 2 
+const int CTX_20; // as = 1 & as = 2 
+const int CTX_21; // as = 3 
+const int CTX_22; // as = 1 & as = 3 
+const int CTX_23; // as = 2 & as = 3 
+const int CTX_24; // as = 1 & as = 2 & as = 3 
+
+global CTX_G2_T6_1: [0..1] init 0;
+global CTX_G2_T6_2: [0..1] init 0;
+global CTX_G2_T6_3: [0..1] init 0;
+
+
+module NonDeterminism_G2_T6
+	sG2_T6 :[0..2] init 0;
+	
+	[next_1] sG2_T6 = 0 -> (sG2_T6'= 1);
+
+	[] sG2_T6 = 1 -> CTX_18 : (sG2_T6'= 2) & (CTX_G2_T6_1'=1) + (1 - CTX_18) : (sG2_T6'=1);
+	[] sG2_T6 = 1 -> CTX_19 : (sG2_T6'= 2) & (CTX_G2_T6_2'=1) + (1 - CTX_19) : (sG2_T6'=1);
+	[] sG2_T6 = 1 -> CTX_20 : (sG2_T6'= 2) & (CTX_G2_T6_1'=1) & (CTX_G2_T6_2'=1) + (1 - CTX_20) : (sG2_T6'=1);
+	[] sG2_T6 = 1 -> CTX_21 : (sG2_T6'= 2) & (CTX_G2_T6_3'=1) + (1 - CTX_21) : (sG2_T6'=1);
+	[] sG2_T6 = 1 -> CTX_22 : (sG2_T6'= 2) & (CTX_G2_T6_1'=1) & (CTX_G2_T6_3'=1) + (1 - CTX_22) : (sG2_T6'=1);
+	[] sG2_T6 = 1 -> CTX_23 : (sG2_T6'= 2) & (CTX_G2_T6_2'=1) & (CTX_G2_T6_3'=1) + (1 - CTX_23) : (sG2_T6'=1);
+	[] sG2_T6 = 1 -> CTX_24 : (sG2_T6'= 2) & (CTX_G2_T6_1'=1) & (CTX_G2_T6_2'=1) & (CTX_G2_T6_3'=1) + (1 - CTX_24) : (sG2_T6'=1);
+
+	[] sG2_T6 = 1 -> (sG2_T6'=2); //no uncertainty holding
+	 
+	[next_2] sG2_T6 = 2 -> (sG2_T6'=2);
+endmodule
+
+const double R_G2_T6_1;
+module G2_T6_1_AlarmService1
+	sG2_T6_1 :[0..4] init 0;
+	
+	[next_2] sG2_T6_1 = 0 -> CTX_G2 : (sG2_T6_1'=1) + (1 - CTX_G2) : (sG2_T6_1'=3); //init to running or skip
+	
+
+	[] sG2_T6_1 =  1 -> R_G2_T6_1 : (sG2_T6_1'=2) + (1 - R_G2_T6_1) : (sG2_T6_1'=4);//running to final state
+	[next_3] sG2_T6_1 = 2 -> (sG2_T6_1'=2);//final state success
+	[next_3] sG2_T6_1 = 3 -> (sG2_T6_1'=3);//final state skipped
+	[next_3] sG2_T6_1 = 4 -> (sG2_T6_1'=4);//final state failure
+endmodule
+
+const double R_G2_T6_2;
+module G2_T6_2_AlarmService2
+	sG2_T6_2 :[0..4] init 0;
+	
+	[next_2] sG2_T6_2 = 0 -> CTX_G2 : (sG2_T6_2'=1) + (1 - CTX_G2) : (sG2_T6_2'=3); //init to running or skip
+	
+
+	[] sG2_T6_2 =  1 -> R_G2_T6_2 : (sG2_T6_2'=2) + (1 - R_G2_T6_2) : (sG2_T6_2'=4);//running to final state
+	[next_3] sG2_T6_2 = 2 -> (sG2_T6_2'=2);//final state success
+	[next_3] sG2_T6_2 = 3 -> (sG2_T6_2'=3);//final state skipped
+	[next_3] sG2_T6_2 = 4 -> (sG2_T6_2'=4);//final state failure
+endmodule
+
+const double R_G2_T6_3;
+module G2_T6_3_AlarmService3
+	sG2_T6_3 :[0..4] init 0;
+	
+	[next_2] sG2_T6_3 = 0 -> CTX_G2 : (sG2_T6_3'=1) + (1 - CTX_G2) : (sG2_T6_3'=3); //init to running or skip
+	
+
+	[] sG2_T6_3 =  1 -> R_G2_T6_3 : (sG2_T6_3'=2) + (1 - R_G2_T6_3) : (sG2_T6_3'=4);//running to final state
+	[next_3] sG2_T6_3 = 2 -> (sG2_T6_3'=2);//final state success
+	[next_3] sG2_T6_3 = 3 -> (sG2_T6_3'=3);//final state skipped
+	[next_3] sG2_T6_3 = 4 -> (sG2_T6_3'=4);//final state failure
+endmodule
+
+formula G2 = ((sG2_T6_1=2) | (sG2_T6_2=2) | (sG2_T6_3=2));
+
+formula G0 = G1 | G2;
+label "success" = G0;
+
+const double W_G3_T1;
+const double W_G4_T2_1;
+const double W_G4_T2_2;
+const double W_G4_T2_3;
+const double W_G6_T3_1;
+const double W_G6_T3_2;
+const double W_G8_T5_1;
+const double W_G8_T5_2;
+const double W_G8_T5_3;
+const double W_G2_T6_1;
+const double W_G2_T6_2;
+const double W_G2_T6_3;
+rewards "cost"
+	sG3_T1 = 1 : W_G3_T1;
+	sG4_T2_1 = 1 : W_G4_T2_1;
+	sG4_T2_2 = 1 : W_G4_T2_2;
+	sG4_T2_3 = 1 : W_G4_T2_3;
+	sG6_T3_1 = 1 : W_G6_T3_1;
+	sG6_T3_2 = 1 : W_G6_T3_2;
+	sG8_T5_1 = 1 : W_G8_T5_1;
+	sG8_T5_2 = 1 : W_G8_T5_2;
+	sG8_T5_3 = 1 : W_G8_T5_3;
+	sG2_T6_1 = 1 : W_G2_T6_1;
+	sG2_T6_2 = 1 : W_G2_T6_2;
+	sG2_T6_3 = 1 : W_G2_T6_3;
+	
+endrewards
+

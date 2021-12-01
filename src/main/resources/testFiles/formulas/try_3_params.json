@@ -1,0 +1,72 @@
+{
+  "actors": [
+    {
+      "id": "ea9bfb9f-82d6-4ad8-9805-0778594d2b9d",
+      "text": "Evaluation Actor",
+      "type": "istar.Actor",
+      "x": 14,
+      "y": 123,
+      "nodes": [
+        {
+          "id": "4b5e3705-5684-4959-b631-ba9fb99e494f",
+          "text": "G0: tres filhos [try(T1)?T2:T3]",
+          "type": "istar.Goal",
+          "x": 219,
+          "y": 140,
+          "customProperties": {
+            "selected": "true"
+          }
+        },
+        {
+          "id": "cd554f56-b93b-4b50-9ed7-c6fb6dfcdb25",
+          "text": "T1: folha um",
+          "type": "istar.Task",
+          "x": 42,
+          "y": 380
+        },
+        {
+          "id": "24d71ad7-514a-4faf-8866-4dde1b9ef544",
+          "text": "T2: folha dois",
+          "type": "istar.Task",
+          "x": 150,
+          "y": 385
+        },
+        {
+          "id": "0fedf0ff-1c03-45ce-adf0-ec9541b776f5",
+          "text": "T3: folha três",
+          "type": "istar.Task",
+          "x": 283,
+          "y": 384
+        }
+      ]
+    }
+  ],
+  "dependencies": [],
+  "links": [
+    {
+      "id": "8d377b8f-1307-43f0-b558-fa4083e3efcb",
+      "type": "istar.AndRefinementLink",
+      "source": "cd554f56-b93b-4b50-9ed7-c6fb6dfcdb25",
+      "target": "4b5e3705-5684-4959-b631-ba9fb99e494f"
+    },
+    {
+      "id": "6676d7d4-08c2-4bf4-9f1a-9e4f772c6dc5",
+      "type": "istar.AndRefinementLink",
+      "source": "24d71ad7-514a-4faf-8866-4dde1b9ef544",
+      "target": "4b5e3705-5684-4959-b631-ba9fb99e494f"
+    },
+    {
+      "id": "0fedf0ff-1c03-45ce-adf0-ec9541b776f5",
+      "type": "istar.AndRefinementLink",
+      "source": "0fedf0ff-1c03-45ce-adf0-ec9541b776f5",
+      "target": "4b5e3705-5684-4959-b631-ba9fb99e494f"
+    }
+  ],
+  "tool": "pistar.1.0.0",
+  "istar": "2.0",
+  "saveDate": "Fri, 26 Jan 2018 16:33:43 GMT",
+  "diagram": {
+    "width": 888,
+    "height": 1172
+  }
+}

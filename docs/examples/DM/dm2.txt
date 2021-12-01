@@ -1,0 +1,78 @@
+{
+  "actors": [
+    {
+      "id": "63eb2c4b-6903-4521-97bb-17e6755ba20d",
+      "text": "DM",
+      "type": "istar.Actor",
+      "x": 117,
+      "y": 99,
+      "nodes": [
+        {
+          "id": "5b90cdf2-ae55-42b1-9aa3-c8338baa2498",
+          "text": "G1: goal",
+          "type": "istar.Goal",
+          "x": 250,
+          "y": 119,
+          "customProperties": {
+            "selected": "true"
+          }
+        },
+        {
+          "id": "dd5e3ccb-15e4-45c4-9263-5068537d37b6",
+          "text": "T1: task [DM(T1.1,T1.2)]",
+          "type": "istar.Task",
+          "x": 243,
+          "y": 183
+        },
+        {
+          "id": "a5736600-b24a-4f78-8f92-97f9a2a57dc9",
+          "text": "T1.1: task",
+          "type": "istar.Task",
+          "x": 154,
+          "y": 257,
+          "customProperties": {
+            "creationProperty": "assertion trigger ctx=1"
+          }
+        },
+        {
+          "id": "825e9afa-8137-4271-a0cb-9d110e6b580b",
+          "text": "T1.2: task",
+          "type": "istar.Task",
+          "x": 305,
+          "y": 256,
+          "customProperties": {
+            "creationProperty": "assertion trigger ctx=2"
+          }
+        }
+      ]
+    }
+  ],
+  "dependencies": [],
+  "links": [
+    {
+      "id": "fcc5e084-21f2-4a90-be94-2afc43fc2bbf",
+      "type": "istar.AndRefinementLink",
+      "source": "dd5e3ccb-15e4-45c4-9263-5068537d37b6",
+      "target": "5b90cdf2-ae55-42b1-9aa3-c8338baa2498"
+    },
+    {
+      "id": "7d034022-33b6-44fd-82dd-85386d3ee322",
+      "type": "istar.OrRefinementLink",
+      "source": "a5736600-b24a-4f78-8f92-97f9a2a57dc9",
+      "target": "dd5e3ccb-15e4-45c4-9263-5068537d37b6"
+    },
+    {
+      "id": "27aa701f-5569-4992-a0f2-97892b1fcab9",
+      "type": "istar.OrRefinementLink",
+      "source": "825e9afa-8137-4271-a0cb-9d110e6b580b",
+      "target": "dd5e3ccb-15e4-45c4-9263-5068537d37b6"
+    }
+  ],
+  "tool": "pistar.1.0.0",
+  "istar": "2.0",
+  "saveDate": "Tue, 29 Jan 2019 16:43:04 GMT",
+  "diagram": {
+    "width": 2949.5,
+    "height": 2272
+  }
+}

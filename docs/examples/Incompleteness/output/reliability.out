@@ -1,0 +1,8 @@
+(-F_G1_T1_1*R_G1_T1_1*F_G1_T1_X*R_G1_T1_X*OPT_G1_T1_X+F_G1_T1_1*R_G1_T1_1+F_G1_T1_X*R_G1_T1_X*OPT_G1_T1_X)
+
+//R_G1_T1_1 = reliability of node G1_T1_1
+//F_G1_T1_1 = frequency of node G1_T1_1
+//R_G1_T1_X = reliability of node G1_T1_X
+//F_G1_T1_X = frequency of node G1_T1_X
+//OPT_G1_T1_X = optionality of node G1_T1_X
+

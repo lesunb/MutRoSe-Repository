@@ -1,0 +1,72 @@
+{
+  "actors": [
+    {
+      "id": "ea9bfb9f-82d6-4ad8-9805-0778594d2b9d",
+      "text": "Evaluation Actor",
+      "type": "istar.Actor",
+      "x": 45,
+      "y": 126,
+      "nodes": [
+        {
+          "id": "4b5e3705-5684-4959-b631-ba9fb99e494f",
+          "text": "G1: um filho",
+          "type": "istar.Goal",
+          "x": 164,
+          "y": 139,
+          "customProperties": {
+            "selected": "true"
+          }
+        },
+        {
+          "id": "dbb30fcb-a058-44ab-a049-5a83848e30b5",
+          "text": "T1: um filho",
+          "type": "istar.Task",
+          "x": 84,
+          "y": 221
+        },
+        {
+          "id": "b60e790d-ac05-40df-89f3-a158106fa2ba",
+          "text": "T1.1: um filho de identificador incorreto",
+          "type": "istar.Task",
+          "x": 194,
+          "y": 299
+        },
+        {
+          "id": "7af7ecee-3520-4c43-a0b1-da68a2735e7f",
+          "text": "T1.21: folha",
+          "type": "istar.Task",
+          "x": 81,
+          "y": 375
+        }
+      ]
+    }
+  ],
+  "dependencies": [],
+  "links": [
+    {
+      "id": "2ed872a9-5feb-494e-b624-79c8b143c9d1",
+      "type": "istar.OrRefinementLink",
+      "source": "dbb30fcb-a058-44ab-a049-5a83848e30b5",
+      "target": "4b5e3705-5684-4959-b631-ba9fb99e494f"
+    },
+    {
+      "id": "ae97faac-b41f-4986-9191-893f294047cb",
+      "type": "istar.AndRefinementLink",
+      "source": "b60e790d-ac05-40df-89f3-a158106fa2ba",
+      "target": "dbb30fcb-a058-44ab-a049-5a83848e30b5"
+    },
+    {
+      "id": "86feabc3-2bb6-43ae-8055-73c41bbf5e18",
+      "type": "istar.AndRefinementLink",
+      "source": "7af7ecee-3520-4c43-a0b1-da68a2735e7f",
+      "target": "b60e790d-ac05-40df-89f3-a158106fa2ba"
+    }
+  ],
+  "tool": "pistar.1.0.0",
+  "istar": "2.0",
+  "saveDate": "Fri, 26 Jan 2018 15:12:05 GMT",
+  "diagram": {
+    "width": 888,
+    "height": 1172
+  }
+}

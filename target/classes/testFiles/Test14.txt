@@ -1,0 +1,98 @@
+{
+  "actors": [
+    {
+      "id": "ea9bfb9f-82d6-4ad8-9805-0778594d2b9d",
+      "text": "Evaluation Actor",
+      "type": "istar.Actor",
+      "x": 43,
+      "y": 125,
+      "nodes": [
+        {
+          "id": "4b5e3705-5684-4959-b631-ba9fb99e494f",
+          "text": "G1: um filho",
+          "type": "istar.Goal",
+          "x": 152,
+          "y": 134,
+          "customProperties": {
+            "selected": "true"
+          }
+        },
+        {
+          "id": "b8a7b675-3973-4147-887b-e24f55649445",
+          "text": "T1: dois filhos",
+          "type": "istar.Task",
+          "x": 156,
+          "y": 211
+        },
+        {
+          "id": "c75abf3e-6e88-48dc-bc3c-828d7ae68eb8",
+          "text": "T1.1: folha um",
+          "type": "istar.Task",
+          "x": 59,
+          "y": 292
+        },
+        {
+          "id": "1c3e751e-77a2-40ff-9dbe-5fa4e38d6251",
+          "text": "T1.2: folha dois",
+          "type": "istar.Task",
+          "x": 155,
+          "y": 345
+        },
+        {
+          "id": "94f4b7f8-7d81-40c3-a8f7-ab1236b2ccd4",
+          "text": "T1.4: folha quatro",
+          "type": "istar.Task",
+          "x": 331,
+          "y": 277
+        },
+        {
+          "id": "5dc3a499-0d88-42db-a6c9-0c947eac5224",
+          "text": "T1.3: folha três",
+          "type": "istar.Task",
+          "x": 268,
+          "y": 344
+        }
+      ]
+    }
+  ],
+  "dependencies": [],
+  "links": [
+    {
+      "id": "70bb46d3-ae23-4a9b-bf2d-16d823c5ac82",
+      "type": "istar.OrRefinementLink",
+      "source": "b8a7b675-3973-4147-887b-e24f55649445",
+      "target": "4b5e3705-5684-4959-b631-ba9fb99e494f"
+    },
+    {
+      "id": "27212699-20a9-4f22-8188-b63e2624cdb7",
+      "type": "istar.AndRefinementLink",
+      "source": "c75abf3e-6e88-48dc-bc3c-828d7ae68eb8",
+      "target": "b8a7b675-3973-4147-887b-e24f55649445"
+    },
+    {
+      "id": "36c8876f-4449-46a8-af9b-47e404a480a5",
+      "type": "istar.AndRefinementLink",
+      "source": "1c3e751e-77a2-40ff-9dbe-5fa4e38d6251",
+      "target": "b8a7b675-3973-4147-887b-e24f55649445"
+    },
+    {
+      "id": "57f66eae-c136-42ab-976f-35e9bb77d8de",
+      "type": "istar.AndRefinementLink",
+      "source": "5dc3a499-0d88-42db-a6c9-0c947eac5224",
+      "target": "b8a7b675-3973-4147-887b-e24f55649445"
+    },
+    {
+      "id": "881ee05e-bbe8-4714-a36a-2415bc2ec918",
+      "type": "istar.AndRefinementLink",
+      "source": "94f4b7f8-7d81-40c3-a8f7-ab1236b2ccd4",
+      "target": "b8a7b675-3973-4147-887b-e24f55649445"
+    }
+  ],
+  "tool": "pistar.1.0.0",
+  "istar": "2.0",
+  "saveDate": "Fri, 26 Jan 2018 13:02:35 GMT",
+  "diagram": {
+    "width": 888,
+    "height": 1172
+  }
+}

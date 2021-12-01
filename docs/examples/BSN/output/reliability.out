@@ -1,0 +1,26 @@
+((-(-(-(-CTX_G3_T1_1*(R_G3_T1_11*R_G3_T1_12*R_G3_T1_13)*CTX_G3_T1_2*(R_G3_T1_21*R_G3_T1_22*R_G3_T1_23)+CTX_G3_T1_1*(R_G3_T1_11*R_G3_T1_12*R_G3_T1_13)+CTX_G3_T1_2*(R_G3_T1_21*R_G3_T1_22*R_G3_T1_23))*CTX_G3_T1_3*(R_G3_T1_31*R_G3_T1_32*R_G3_T1_33)+(-CTX_G3_T1_1*(R_G3_T1_11*R_G3_T1_12*R_G3_T1_13)*CTX_G3_T1_2*(R_G3_T1_21*R_G3_T1_22*R_G3_T1_23)+CTX_G3_T1_1*(R_G3_T1_11*R_G3_T1_12*R_G3_T1_13)+CTX_G3_T1_2*(R_G3_T1_21*R_G3_T1_22*R_G3_T1_23))+CTX_G3_T1_3*(R_G3_T1_31*R_G3_T1_32*R_G3_T1_33))*CTX_G3_T1_4*((R_G3_T1_411*R_G3_T1_412)*R_G3_T1_42*R_G3_T1_43)+(-(-CTX_G3_T1_1*(R_G3_T1_11*R_G3_T1_12*R_G3_T1_13)*CTX_G3_T1_2*(R_G3_T1_21*R_G3_T1_22*R_G3_T1_23)+CTX_G3_T1_1*(R_G3_T1_11*R_G3_T1_12*R_G3_T1_13)+CTX_G3_T1_2*(R_G3_T1_21*R_G3_T1_22*R_G3_T1_23))*CTX_G3_T1_3*(R_G3_T1_31*R_G3_T1_32*R_G3_T1_33)+(-CTX_G3_T1_1*(R_G3_T1_11*R_G3_T1_12*R_G3_T1_13)*CTX_G3_T1_2*(R_G3_T1_21*R_G3_T1_22*R_G3_T1_23)+CTX_G3_T1_1*(R_G3_T1_11*R_G3_T1_12*R_G3_T1_13)+CTX_G3_T1_2*(R_G3_T1_21*R_G3_T1_22*R_G3_T1_23))+CTX_G3_T1_3*(R_G3_T1_31*R_G3_T1_32*R_G3_T1_33))+CTX_G3_T1_4*((R_G3_T1_411*R_G3_T1_412)*R_G3_T1_42*R_G3_T1_43))*CTX_G3_T1_X*R_G3_T1_X*OPT_G3_T1_X+(-(-(-CTX_G3_T1_1*(R_G3_T1_11*R_G3_T1_12*R_G3_T1_13)*CTX_G3_T1_2*(R_G3_T1_21*R_G3_T1_22*R_G3_T1_23)+CTX_G3_T1_1*(R_G3_T1_11*R_G3_T1_12*R_G3_T1_13)+CTX_G3_T1_2*(R_G3_T1_21*R_G3_T1_22*R_G3_T1_23))*CTX_G3_T1_3*(R_G3_T1_31*R_G3_T1_32*R_G3_T1_33)+(-CTX_G3_T1_1*(R_G3_T1_11*R_G3_T1_12*R_G3_T1_13)*CTX_G3_T1_2*(R_G3_T1_21*R_G3_T1_22*R_G3_T1_23)+CTX_G3_T1_1*(R_G3_T1_11*R_G3_T1_12*R_G3_T1_13)+CTX_G3_T1_2*(R_G3_T1_21*R_G3_T1_22*R_G3_T1_23))+CTX_G3_T1_3*(R_G3_T1_31*R_G3_T1_32*R_G3_T1_33))*CTX_G3_T1_4*((R_G3_T1_411*R_G3_T1_412)*R_G3_T1_42*R_G3_T1_43)+(-(-CTX_G3_T1_1*(R_G3_T1_11*R_G3_T1_12*R_G3_T1_13)*CTX_G3_T1_2*(R_G3_T1_21*R_G3_T1_22*R_G3_T1_23)+CTX_G3_T1_1*(R_G3_T1_11*R_G3_T1_12*R_G3_T1_13)+CTX_G3_T1_2*(R_G3_T1_21*R_G3_T1_22*R_G3_T1_23))*CTX_G3_T1_3*(R_G3_T1_31*R_G3_T1_32*R_G3_T1_33)+(-CTX_G3_T1_1*(R_G3_T1_11*R_G3_T1_12*R_G3_T1_13)*CTX_G3_T1_2*(R_G3_T1_21*R_G3_T1_22*R_G3_T1_23)+CTX_G3_T1_1*(R_G3_T1_11*R_G3_T1_12*R_G3_T1_13)+CTX_G3_T1_2*(R_G3_T1_21*R_G3_T1_22*R_G3_T1_23))+CTX_G3_T1_3*(R_G3_T1_31*R_G3_T1_32*R_G3_T1_33))+CTX_G3_T1_4*((R_G3_T1_411*R_G3_T1_412)*R_G3_T1_42*R_G3_T1_43))+CTX_G3_T1_X*R_G3_T1_X*OPT_G3_T1_X)*(R_G4_T1_1*CTX_G4_T1_2*R_G4_T1_2*R_G4_T1_3))
+
+//CTX_G3_T1_2 = (ECG_sensor = true)
+//CTX_G3_T1_1 = (SaO2_sensor = true)
+//CTX_G3_T1_4 = (ABP_sensor = true)
+//CTX_G3_T1_3 = (TEMP_sensor = true)
+//CTX_G3_T1_X = (Unknown_sensor = true)
+//CTX_G4_T1_2 = (SaO2_data>0 & SaO2_data<100 & ECG_data>0 & ECG_data<300 & TEMP_data>0 & TEMP_data<50 & Systolic_data>0 & Systolic_data<300 & Diastolic_data>0 & Diastolic_data<300)
+//R_G3_T1_31 = reliability of node G3_T1_31
+//R_G3_T1_42 = reliability of node G3_T1_42
+//R_G3_T1_11 = reliability of node G3_T1_11
+//R_G3_T1_22 = reliability of node G3_T1_22
+//R_G3_T1_33 = reliability of node G3_T1_33
+//OPT_G3_T1_X = optionality of node G3_T1_X
+//R_G3_T1_21 = reliability of node G3_T1_21
+//R_G3_T1_32 = reliability of node G3_T1_32
+//R_G3_T1_43 = reliability of node G3_T1_43
+//R_G3_T1_13 = reliability of node G3_T1_13
+//R_G3_T1_12 = reliability of node G3_T1_12
+//R_G3_T1_23 = reliability of node G3_T1_23
+//R_G3_T1_411 = reliability of node G3_T1_411
+//R_G4_T1_1 = reliability of node G4_T1_1
+//R_G3_T1_412 = reliability of node G3_T1_412
+//R_G4_T1_2 = reliability of node G4_T1_2
+//R_G4_T1_3 = reliability of node G4_T1_3
+

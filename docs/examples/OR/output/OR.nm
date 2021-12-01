@@ -1,0 +1,42 @@
+mdp
+
+const double R_G1_T1_1;
+const double F_G1_T1_1;
+
+module G1_T1_1_Task
+	sG1_T1_1 :[0..4] init 0;
+	
+	[next_0] sG1_T1_1 = 0 -> F_G1_T1_1 : (sG1_T1_1'=1) + (1 - F_G1_T1_1) : (sG1_T1_1'=3); //init to running or skip
+
+	[] sG1_T1_1 =  1 -> R_G1_T1_1 : (sG1_T1_1'=2) + (1 - R_G1_T1_1) : (sG1_T1_1'=4);//running to final state
+	[next_1] sG1_T1_1 = 2 -> (sG1_T1_1'=2);//final state success
+	[next_1] sG1_T1_1 = 3 -> (sG1_T1_1'=3);//final state skipped
+	[next_1] sG1_T1_1 = 4 -> (sG1_T1_1'=4);//final state failure
+endmodule
+
+const double R_G1_T1_2;
+const double F_G1_T1_2;
+
+module G1_T1_2_Task
+	sG1_T1_2 :[0..4] init 0;
+	
+	[next_1] sG1_T1_2 = 0 -> F_G1_T1_2 : (sG1_T1_2'=1) + (1 - F_G1_T1_2) : (sG1_T1_2'=3); //init to running or skip
+
+	[] sG1_T1_2 =  1 -> R_G1_T1_2 : (sG1_T1_2'=2) + (1 - R_G1_T1_2) : (sG1_T1_2'=4);//running to final state
+	[next_2] sG1_T1_2 = 2 -> (sG1_T1_2'=2);//final state success
+	[next_2] sG1_T1_2 = 3 -> (sG1_T1_2'=3);//final state skipped
+	[next_2] sG1_T1_2 = 4 -> (sG1_T1_2'=4);//final state failure
+endmodule
+
+formula G1 = ((sG1_T1_1=2) | (sG1_T1_2=2));
+
+label "success" = G1;
+
+const double W_G1_T1_1;
+const double W_G1_T1_2;
+rewards "cost"
+	sG1_T1_1 = 1 : W_G1_T1_1;
+	sG1_T1_2 = 1 : W_G1_T1_2;
+	
+endrewards
+

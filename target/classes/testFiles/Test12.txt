@@ -1,0 +1,85 @@
+{
+  "actors": [
+    {
+      "id": "ea9bfb9f-82d6-4ad8-9805-0778594d2b9d",
+      "text": "Evaluation Actor",
+      "type": "istar.Actor",
+      "x": 42,
+      "y": 123,
+      "nodes": [
+        {
+          "id": "4b5e3705-5684-4959-b631-ba9fb99e494f",
+          "text": "G0: quatro filhos",
+          "type": "istar.Goal",
+          "x": 150,
+          "y": 133,
+          "customProperties": {
+            "selected": "true"
+          }
+        },
+        {
+          "id": "7134c537-c314-404d-80ae-1014910ce4eb",
+          "text": "G1: folha um",
+          "type": "istar.Goal",
+          "x": 51,
+          "y": 220
+        },
+        {
+          "id": "600a4ec8-cec0-432c-b92a-9234be203e0c",
+          "text": "G2: folha dois",
+          "type": "istar.Goal",
+          "x": 137,
+          "y": 269
+        },
+        {
+          "id": "1bc7857c-086e-47b0-998f-60029a02c44c",
+          "text": "G3: folha três",
+          "type": "istar.Goal",
+          "x": 263,
+          "y": 259
+        },
+        {
+          "id": "43680111-0a60-4bf9-8165-47650473bd8a",
+          "text": "G4: folha quatro",
+          "type": "istar.Goal",
+          "x": 324,
+          "y": 195
+        }
+      ]
+    }
+  ],
+  "dependencies": [],
+  "links": [
+    {
+      "id": "99811b81-75a5-4622-8b04-c81c5955f7cc",
+      "type": "istar.AndRefinementLink",
+      "source": "7134c537-c314-404d-80ae-1014910ce4eb",
+      "target": "4b5e3705-5684-4959-b631-ba9fb99e494f"
+    },
+    {
+      "id": "b74a5f38-e55d-4653-862b-263359627f80",
+      "type": "istar.AndRefinementLink",
+      "source": "600a4ec8-cec0-432c-b92a-9234be203e0c",
+      "target": "4b5e3705-5684-4959-b631-ba9fb99e494f"
+    },
+    {
+      "id": "31ecd6f2-bc6b-41ef-9d04-020d36f05de7",
+      "type": "istar.AndRefinementLink",
+      "source": "1bc7857c-086e-47b0-998f-60029a02c44c",
+      "target": "4b5e3705-5684-4959-b631-ba9fb99e494f"
+    },
+    {
+      "id": "f2377be3-160a-4a8c-8fc5-97f8bcbb7041",
+      "type": "istar.AndRefinementLink",
+      "source": "43680111-0a60-4bf9-8165-47650473bd8a",
+      "target": "4b5e3705-5684-4959-b631-ba9fb99e494f"
+    }
+  ],
+  "tool": "pistar.1.0.0",
+  "istar": "2.0",
+  "saveDate": "Fri, 26 Jan 2018 12:59:18 GMT",
+  "diagram": {
+    "width": 888,
+    "height": 1172
+  }
+}
